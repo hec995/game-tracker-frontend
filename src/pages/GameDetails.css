@@ -1,0 +1,25 @@
+.game-details-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.game-header h2 {
+  color: #0078ff;
+  margin-bottom: 10px;
+}
+
+.game-header p {
+  margin: 5px 0;
+}
+
+.reviews-section {
+  margin-top: 20px;
+}
+
+.loading {
+  text-align: center;
+  color: #777;
+}

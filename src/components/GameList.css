@@ -1,0 +1,50 @@
+.game-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.game-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+}
+
+.game-info h3 {
+  margin: 0;
+}
+
+.game-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #ffb300;
+}
+
+.delete-btn {
+  background-color: #e63946;
+}
+
+.delete-btn:hover {
+  background-color: #c21825;
+}
