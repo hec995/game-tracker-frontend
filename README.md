@@ -1,16 +1,47 @@
-# React + Vite
+# 🎮 GameTracker - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GameTracker** es una aplicación web para organizar, reseñar y explorar videojuegos.  
+Este repositorio contiene el **frontend** del proyecto, desarrollado con **React + Vite** y comunicación con el backend hecho en **Node.js + Express + MongoDB**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## React Compiler
+- ⚛️ **React** (con Vite) → Interfaz moderna y rápida  
+- 🎨 **CSS modularizado** → Estilos separados por componente  
+- 🌐 **Axios** → Conexión con la API del backend  
+- 🧭 **React Router DOM** → Navegación entre vistas  
+- 🧱 **Git + GitHub** → Control de versiones y repositorio remoto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Instalación y configuración
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1️⃣ Clonar el repositorio
+```bash
+git clone https://github.com/<TU_USUARIO>/game-tracker-frontend.git
+cd game-tracker-frontend
+
+🧪 Pruebas y funcionamiento
+
+Inicia el backend (npm run dev desde la carpeta del backend).
+
+Inicia el frontend (npm run dev desde esta carpeta).
+
+Abre el navegador en http://localhost:5173
+.
+
+Agrega un videojuego y revisa que aparezca en la lista.
+
+Entra al detalle del juego y agrega una reseña.
+
+🧑‍💻 Autor
+
+Héctor Morales
+Estudiante de Ingeniería de Sistemas
+Proyecto académico — Jóvenes Creativos
+
+🏁 Licencia
+
+Este proyecto se distribuye bajo la licencia MIT.
+Puedes usarlo y modificarlo libremente con fines educativos o personales.
