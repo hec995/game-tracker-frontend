@@ -1,0 +1,228 @@
+/* FormularioEdicionReseña.css - Estilos complementarios gaming */
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeInForm 0.5s ease;
+}
+
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.edit-form h2 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+.edit-form label {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  margin-bottom: -10px;
+}
+
+.edit-form input,
+.edit-form select,
+.edit-form textarea {
+  padding: 14px 18px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.edit-form input::placeholder,
+.edit-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.edit-form input:focus,
+.edit-form select:focus,
+.edit-form textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.edit-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 40px;
+}
+
+.edit-form select option {
+  background: #1a1a2e;
+  color: white;
+  padding: 10px;
+}
+
+.edit-form textarea {
+  min-height: 140px;
+  resize: vertical;
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.check-row:hover {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateX(5px);
+}
+
+.check-row input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #667eea;
+  transform: none;
+  margin: 0;
+  padding: 0;
+}
+
+.check-row input[type="checkbox"]:focus {
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.btn-guardar {
+  padding: 14px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  margin-top: 10px;
+}
+
+.btn-guardar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-guardar:hover::before {
+  left: 100%;
+}
+
+.btn-guardar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+}
+
+.btn-guardar:active {
+  transform: translateY(-1px);
+}
+
+/* Indicador de puntuación visual */
+.edit-form input[type="number"][min="1"][max="5"] {
+  background: linear-gradient(to right, 
+    rgba(239, 68, 68, 0.1) 0%, 
+    rgba(251, 191, 36, 0.1) 50%, 
+    rgba(74, 222, 128, 0.1) 100%);
+}
+
+.edit-form input[type="number"][min="1"][max="5"]:focus {
+  background: linear-gradient(to right, 
+    rgba(239, 68, 68, 0.15) 0%, 
+    rgba(251, 191, 36, 0.15) 50%, 
+    rgba(74, 222, 128, 0.15) 100%);
+}
+
+/* Efecto de carga en el botón */
+.btn-guardar.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn-guardar.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .edit-form {
+    gap: 15px;
+  }
+
+  .edit-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .edit-form input,
+  .edit-form select,
+  .edit-form textarea {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+  }
+
+  .edit-form textarea {
+    min-height: 120px;
+  }
+
+  .check-row {
+    padding: 12px 14px;
+  }
+
+  .btn-guardar {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}

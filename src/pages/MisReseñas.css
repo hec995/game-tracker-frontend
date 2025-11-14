@@ -1,221 +1,473 @@
-/* MisReseñas.css - estilos para la página "Mis reseñas" */
+/* MisReseñas.css - Gaming Profesional */
 
 .mis-reseñas-container {
-  padding: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 50px 60px;
+  width: 100%;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
   box-sizing: border-box;
-  color: #222;
+  position: relative;
+}
+
+.mis-reseñas-container::before {
+  content: '';
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1), transparent);
+  border-radius: 50%;
+  top: -300px;
+  left: -300px;
+  pointer-events: none;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.mis-reseñas-container::after {
+  content: '';
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(240, 147, 251, 0.08), transparent);
+  border-radius: 50%;
+  bottom: -250px;
+  right: -250px;
+  pointer-events: none;
+  animation: pulse 10s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
 }
 
 /* Título */
 .mis-reseñas-container h2 {
-  font-size: 1.9rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.6s ease;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Lista */
+.mis-reseñas-container h2::before {
+  content: '⭐';
+  -webkit-text-fill-color: initial;
+  background: none;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.6));
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card de reseña */
 .review-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 18px;
-  box-shadow: 0 6px 18px rgba(36, 36, 36, 0.06);
-  display: grid;
-  grid-template-columns: 100px 1fr auto;
-  gap: 16px;
-  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 25px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease backwards;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
-/* Bloque izquierdo: imagen del juego */
-.review-info img {
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.review-card:nth-child(2) { animation-delay: 0.1s; }
+.review-card:nth-child(3) { animation-delay: 0.2s; }
+.review-card:nth-child(4) { animation-delay: 0.3s; }
+.review-card:nth-child(5) { animation-delay: 0.4s; }
+
+.review-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 8px;
-  display: block;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  height: 100%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Título y metadatos del juego */
+.review-card:hover::before {
+  opacity: 1;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* Bloque de info con imagen */
+.review-info {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.review-info img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.review-card:hover .review-info img {
+  transform: scale(1.05);
+}
+
 .review-info h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #111;
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .review-info p {
-  margin: 6px 0 0 0;
-  color: #666;
-  font-size: 0.9rem;
+  margin: 4px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
 }
 
-/* Centro: contenido de la reseña */
-.review-card p {
+/* Contenido de la reseña */
+.review-card > p {
   margin: 6px 0;
-  color: #333;
-  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
-/* Meta pequeña */
+.review-card > p:first-of-type {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .review-card small {
-  color: #777;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
 }
 
-/* Botones (columna derecha) */
+/* Botones */
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-/* Botones primarios */
 .btn-edit,
 .btn-delete {
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  min-width: 98px;
-}
-
-/* Editar - verde */
-.btn-edit {
-  background: linear-gradient(180deg, #4caf50, #3b9b44);
-  color: white;
-}
-
-/* Eliminar - rojo */
-.btn-delete {
-  background: linear-gradient(180deg, #e53935, #c62828);
-  color: white;
-}
-
-/* Hover states */
-.btn-edit:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(59,155,68,0.12); }
-.btn-delete:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(198,40,40,0.12); }
-
-/* Responsive: en pantallas pequeñas apilar */
-@media (max-width: 800px) {
-  .review-card {
-    grid-template-columns: 1fr;
-  }
-
-  .buttons {
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  .review-info {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-  }
-
-  .review-info img {
-    width: 84px;
-    height: 64px;
-  }
-}
-
-/* ====== Estilos básicos para el formulario de edición dentro del modal ====== */
-
-/* Asegúrate de que el modal tenga ya su CSS (Modal.css). Estos son auxiliares. */
-.modal-content form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.modal-content label {
-  font-size: 0.95rem;
-  color: #444;
-}
-
-.modal-content input[type="number"],
-.modal-content input[type="text"],
-.modal-content textarea,
-.modal-content select {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #d5d9df;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.modal-content textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.modal-content button[type="submit"] {
-  margin-top: 6px;
-  padding: 10px 14px;
+  padding: 10px 18px;
   border-radius: 10px;
-  border: none;
-  background: #4a4af4;
-  color: white;
   font-weight: 700;
   cursor: pointer;
+  min-width: 110px;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
-.modal-content button[type="submit"]:hover {
-  background: #3636d9;
+.btn-edit::before,
+.btn-delete::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
 }
+
+.btn-edit:hover::before,
+.btn-delete:hover::before {
+  left: 100%;
+}
+
+.btn-edit {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: white;
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+}
+
+.btn-delete {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.btn-edit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5);
+}
+
+.btn-delete:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+.btn-edit:active,
+.btn-delete:active {
+  transform: translateY(-1px);
+}
+
+/* ====== Formulario de edición dentro del modal ====== */
+
+.modal-content form,
 .edit-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+.modal-content label {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.modal-content input[type="number"],
+.modal-content input[type="text"],
+.modal-content textarea,
+.modal-content select,
 .edit-form input,
 .edit-form select,
 .edit-form textarea {
-  padding: 12px;
-  font-size: 1rem;
+  padding: 12px 16px;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
+.modal-content input::placeholder,
+.modal-content textarea::placeholder,
+.edit-form input::placeholder,
+.edit-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus,
+.edit-form input:focus,
+.edit-form textarea:focus,
+.edit-form select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+}
+
+.modal-content textarea,
 .edit-form textarea {
   min-height: 120px;
   resize: vertical;
+}
+
+.modal-content button[type="submit"],
+.btn-guardar {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.modal-content button[type="submit"]::before,
+.btn-guardar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.modal-content button[type="submit"]:hover::before,
+.btn-guardar:hover::before {
+  left: 100%;
+}
+
+.modal-content button[type="submit"]:hover,
+.btn-guardar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
 }
 
 .check-row {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding: 10px;
 }
 
-.btn-guardar {
-  padding: 12px;
-  background: #4a4af4;
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 10px;
+.check-row input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
   cursor: pointer;
-}
-.review-card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 18px;
-  box-shadow: 0 6px 18px rgba(36, 36, 36, 0.06);
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
+  accent-color: #667eea;
 }
 
-/* Imagen del juego */
-.review-info img {
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 8px;
+/* Responsive */
+@media (max-width: 1024px) {
+  .mis-reseñas-container {
+    padding: 40px 30px;
+  }
+
+  .review-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .review-info {
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mis-reseñas-container {
+    padding: 30px 20px;
+  }
+
+  .mis-reseñas-container h2 {
+    font-size: 2rem;
+  }
+
+  .review-info img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .review-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .buttons {
+    gap: 8px;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    padding: 10px 14px;
+    min-width: 100px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mis-reseñas-container {
+    padding: 20px 15px;
+  }
+
+  .mis-reseñas-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .review-card {
+    padding: 20px 15px;
+  }
+
+  .review-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .review-info img {
+    width: 100%;
+    height: 180px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+  }
 }

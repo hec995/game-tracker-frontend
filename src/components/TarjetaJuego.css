@@ -1,32 +1,78 @@
 .tarjeta-juego {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 0;
   text-align: center;
-  transition: transform 0.2s;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+.tarjeta-juego::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.tarjeta-juego:hover::before {
+  opacity: 1;
 }
 
 .tarjeta-juego:hover {
-  transform: scale(1.02);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4);
+  border-color: rgba(102, 126, 234, 0.5);
 }
 
 .imagen-contenedor {
   width: 100%;
-  height: 200px;
-  border-radius: 10px;
+  height: 220px;
+  border-radius: 0;
   overflow: hidden;
-  background: #eee;
-  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.imagen-contenedor::after {
+  content: '🔍';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.imagen-contenedor:hover::after {
+  opacity: 0.8;
 }
 
 .imagen-contenedor img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.imagen-contenedor:hover img {
+  transform: scale(1.15);
 }
 
 .sin-imagen {
@@ -34,41 +80,139 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: #777;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.sin-imagen::before {
+  content: '🎮';
+  font-size: 3rem;
+  margin-right: 10px;
+}
+
+.tarjeta-juego h3 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 15px 15px 8px 15px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.5px;
+}
+
+.tarjeta-juego p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 5px 15px;
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+}
+
+.tarjeta-juego small {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+.completado {
+  color: #4ade80 !important;
+  font-weight: 700;
+  font-size: 0.9rem !important;
+  padding: 6px 12px;
+  background: rgba(74, 222, 128, 0.15);
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10px 15px !important;
+}
+
+.pendiente {
+  color: #fbbf24 !important;
+  font-weight: 700;
+  font-size: 0.9rem !important;
+  padding: 6px 12px;
+  background: rgba(251, 191, 36, 0.15);
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10px 15px !important;
 }
 
 .acciones {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 8px;
+  margin: 15px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
 }
 
-.acciones button {
+.acciones button,
+.detalle-btn {
   border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
+  border-radius: 10px;
+  padding: 10px 16px;
   cursor: pointer;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.acciones button::before,
+.detalle-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.acciones button:hover::before,
+.detalle-btn:hover::before {
+  left: 100%;
 }
 
 .acciones button:first-child {
-  background-color: #ffb300;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
 }
 
-.acciones button:last-child {
-  background-color: #e63946;
+.acciones button:first-child:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
 }
 
-.completado {
-  color: green;
+.acciones button:nth-child(2) {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
-.pendiente {
-  color: gray;
+.acciones button:nth-child(2):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
 }
+
+.detalle-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.detalle-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
 /* ========== MODAL DE IMAGEN ========== */
 .modal-overlay {
   position: fixed;
@@ -76,70 +220,137 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeInModal 0.3s ease;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
   position: relative;
   max-width: 90%;
   max-height: 90%;
-  border-radius: 10px;
+  border-radius: 16px;
   overflow: hidden;
-  animation: fadeIn 0.3s ease;
+  animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 20px 80px rgba(102, 126, 234, 0.5);
+  border: 2px solid rgba(102, 126, 234, 0.3);
 }
 
-.modal-imagen {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.cerrar-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  line-height: 35px;
-}
-
-.cerrar-modal:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* animación de entrada */
-@keyframes fadeIn {
+@keyframes zoomIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.8);
   }
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
-.detalle-btn {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 6px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.2s;
+
+.modal-imagen {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
 }
 
-.detalle-btn:hover {
-  background-color: #0056b3;
+.cerrar-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  line-height: 45px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.5);
+}
+
+.cerrar-modal:hover {
+  background: rgba(239, 68, 68, 1);
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 6px 25px rgba(239, 68, 68, 0.7);
+}
+
+.cerrar-modal:active {
+  transform: scale(0.95) rotate(90deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .imagen-contenedor {
+    height: 200px;
+  }
+
+  .tarjeta-juego h3 {
+    font-size: 1.1rem;
+  }
+
+  .acciones {
+    gap: 6px;
+    margin: 12px;
+  }
+
+  .acciones button,
+  .detalle-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 85%;
+  }
+
+  .cerrar-modal {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagen-contenedor {
+    height: 180px;
+  }
+
+  .tarjeta-juego h3 {
+    font-size: 1rem;
+    margin: 12px 12px 6px 12px;
+  }
+
+  .tarjeta-juego p {
+    font-size: 0.85rem;
+    margin: 4px 12px;
+  }
+
+  .acciones {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .acciones button,
+  .detalle-btn {
+    width: 100%;
+  }
 }

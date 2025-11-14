@@ -21,7 +21,7 @@ function Explorar() {
 
   return (
     <div className="explorar-container">
-      <h1>🌍 Explorar juegos de otros jugadores</h1>
+      <h1> Explorar juegos de otros jugadores</h1>
       <p className="explorar-sub">Descubre juegos agregados por la comunidad</p>
 
       <div className="explorar-grid">

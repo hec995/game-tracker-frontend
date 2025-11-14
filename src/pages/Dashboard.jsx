@@ -7,7 +7,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h1>👋 Bienvenid@, {user?.nombre || "Jugador"}</h1>
+      <h1> Bienvenid@, {user?.nombre || "Jugador"}</h1>
       <p className="subtitle">Este es tu panel principal de GameTracker</p>
 
       <div className="dashboard-grid">

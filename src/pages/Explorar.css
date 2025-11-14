@@ -1,58 +1,287 @@
 .explorar-container {
-  padding: 30px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 50px 30px;
+  width: 100%;
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.explorar-container::before {
+  content: '';
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.1), transparent);
+  border-radius: 50%;
+  top: -300px;
+  left: -300px;
+  pointer-events: none;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.explorar-container::after {
+  content: '';
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(240, 147, 251, 0.08), transparent);
+  border-radius: 50%;
+  bottom: -250px;
+  right: -250px;
+  pointer-events: none;
+  animation: pulse 10s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.explorar-container h1 {
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.6s ease;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.explorar-container h1::before {
+  content: '🌍';
+  -webkit-text-fill-color: initial;
+  background: none;
+  margin-right: 10px;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .explorar-sub {
-  color: #666;
-  margin-bottom: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.6s ease 0.2s backwards;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
 }
 
 .explorar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease 0.4s backwards;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .explorar-card {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   cursor: pointer;
-  transition: 0.2s ease;
-  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  position: relative;
+}
+
+.explorar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.explorar-card:hover::before {
+  opacity: 1;
 }
 
 .explorar-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4);
+  border-color: rgba(102, 126, 234, 0.5);
 }
 
 .explorar-card img {
   width: 100%;
-  border-radius: 8px;
-  height: 160px;
+  border-radius: 0;
+  height: 200px;
   object-fit: cover;
+  transition: transform 0.4s ease;
+  position: relative;
+}
+
+.explorar-card:hover img {
+  transform: scale(1.1);
+}
+
+.explorar-card h3 {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 15px 15px 8px 15px;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.5px;
 }
 
 .autor {
   font-size: 0.9rem;
-  color: #888;
-  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 5px 15px 15px 15px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.autor::before {
+  content: '👤';
+  font-size: 0.85rem;
 }
 
 .btn-reseñar {
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: #007bff;
+  margin: 0 15px 15px 15px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
+  width: calc(100% - 30px);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.btn-reseñar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-reseñar:hover::before {
+  left: 100%;
 }
 
 .btn-reseñar:hover {
-  background: #005dc7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+}
+
+.btn-reseñar:active {
+  transform: translateY(0);
+}
+
+/* Estado de carga/vacío */
+.explorar-grid:empty::after {
+  content: '🎮 Cargando juegos...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .explorar-container {
+    padding: 30px 20px;
+  }
+
+  .explorar-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .explorar-sub {
+    font-size: 1rem;
+  }
+
+  .explorar-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .explorar-card img {
+    height: 180px;
+  }
+
+  .explorar-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .explorar-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .explorar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explorar-card img {
+    height: 200px;
+  }
+
+  .btn-reseñar {
+    font-size: 0.9rem;
+  }
 }

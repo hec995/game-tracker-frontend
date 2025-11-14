@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../services/api";
-
+import "./FormularioEdicionReseña.css";
 function FormularioEdicionReseña({ reseña, onUpdated }) {
   const [textoReseña, setTextoReseña] = useState(reseña.textoReseña);
   const [puntuacion, setPuntuacion] = useState(reseña.puntuacion);

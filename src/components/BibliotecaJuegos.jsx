@@ -46,7 +46,7 @@ const [vista, setVista] = useState(initialView);
     <div className="biblioteca-container">
       <h2>Mi Biblioteca de Juegos</h2>
 
-      {/* 🔵 Botones de navegación */}
+      {/*  Botones de navegación */}
       <div className="botonera">
         <button onClick={() => setVista("lista")}>Ver Biblioteca</button>
         <button onClick={() => { setVista("agregar"); setJuegoEditando(null); }}>
@@ -54,7 +54,7 @@ const [vista, setVista] = useState(initialView);
         </button>
       </div>
 
-      {/* 🔵 VISTA: VER SOLO TARJETAS */}
+      {/*  VISTA: VER SOLO TARJETAS */}
       {vista === "lista" && (
         <div className="tarjetas-grid">
           {juegos.map((juego) => (
@@ -68,7 +68,7 @@ const [vista, setVista] = useState(initialView);
         </div>
       )}
 
-      {/* 🔵 VISTA: AGREGAR NUEVO JUEGO */}
+      {/* VISTA: AGREGAR NUEVO JUEGO */}
       {vista === "agregar" && (
         <FormularioJuego
           onGameAdded={() => { cargarJuegos(); setVista("lista"); }}
@@ -76,7 +76,7 @@ const [vista, setVista] = useState(initialView);
         />
       )}
 
-      {/* 🔵 VISTA: EDITAR JUEGO */}
+      {/*  VISTA: EDITAR JUEGO */}
       {vista === "editar" && (
         <FormularioJuego
           onGameAdded={() => { cargarJuegos(); setVista("lista"); }}
