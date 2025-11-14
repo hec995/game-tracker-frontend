@@ -21,7 +21,6 @@ function Navbar() {
 
       <div className="navbar-links">
         <Link to="/">Inicio</Link>
-        <Link to="/game/estadisticas">Estadísticas</Link>
         <button className="logout-btn" onClick={handleLogout}>
           🚪 Cerrar sesión
         </button>

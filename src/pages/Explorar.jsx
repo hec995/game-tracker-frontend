@@ -31,10 +31,10 @@ function Explorar() {
             className="explorar-card"
             onClick={() => navigate(`/game/${juego._id}`)}
           >
-            <img src={juego.portadaUrl} alt={juego.titulo} />
+            <img src={juego.imagenPortada} alt={juego.titulo} />
             <h3>{juego.titulo}</h3>
 
-            <p className="autor">Agregado por: {juego.usuario?.name}</p>
+            <p className="autor">Agregado por: {juego.usuario?.nombre}</p>
 
             <button
               className="btn-reseñar"

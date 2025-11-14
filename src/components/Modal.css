@@ -1,0 +1,41 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* MODAL GRANDE */
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 600px;
+  max-width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* botón cerrar */
+.modal-close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background: #d32f2f;
+  color: white;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}

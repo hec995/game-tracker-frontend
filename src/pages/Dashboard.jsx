@@ -7,7 +7,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h1>👋 Bienvenido, {user?.name || "Jugador"}</h1>
+      <h1>👋 Bienvenid@, {user?.nombre || "Jugador"}</h1>
       <p className="subtitle">Este es tu panel principal de GameTracker</p>
 
       <div className="dashboard-grid">
@@ -17,12 +17,12 @@ function Dashboard() {
           <p>Ver juegos agregados por otros jugadores.</p>
         </div>
 
-        <div className="dashboard-card" onClick={() => navigate("/games")}>
+        <div className="dashboard-card" onClick={() => navigate("/games?view=lista")}>
           🎮 <h3>Ver Biblioteca de Juegos</h3>
           <p>Explora todos tus videojuegos registrados.</p>
         </div>
 
-        <div className="dashboard-card" onClick={() => navigate("/add-game")}>
+        <div className="dashboard-card" onClick={() => navigate("/games?view=agregar")}>
           ➕ <h3>Agregar Juego</h3>
           <p>Registra un nuevo videojuego en tu lista.</p>
         </div>
@@ -31,17 +31,6 @@ function Dashboard() {
           ⭐ <h3>Ver Reseñas</h3>
           <p>Lee opiniones y valoraciones creadas por ti.</p>
         </div>
-
-        <div className="dashboard-card" onClick={() => navigate("/add-review")}>
-          📝 <h3>Escribir Reseña</h3>
-          <p>Agrega una opinión detallada de un videojuego.</p>
-        </div>
-
-        <div className="dashboard-card" onClick={() => navigate("/stats")}>
-          📊 <h3>Estadísticas</h3>
-          <p>Analiza tu progreso y hábitos de juego.</p>
-        </div>
-
       </div>
     </div>
   );

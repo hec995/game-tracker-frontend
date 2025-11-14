@@ -3,11 +3,11 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 
-import Home from "./pages/Home";            // ← si deseas mantenerlo
+import Home from "./pages/Home";            
 import GameDetails from "./pages/GameDetails";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Stats from "./pages/Stats";
+
 import Explorar from "./pages/Explorar";
 import MisReseñas from "./pages/MisReseñas";
 
@@ -65,14 +65,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/stats"
-            element={
-              <ProtectedRoute>
-                <Stats />
-              </ProtectedRoute>
-            }
-          />
+          
           <Route
             path="/explorar"
             element={

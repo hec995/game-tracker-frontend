@@ -8,7 +8,7 @@ import "./GameDetails.css";
 function GameDetails() {
   const { id } = useParams();
   const [juego, setJuego] = useState(null);
-  const [actualizar, setActualizar] = useState(false); // 👈 para recargar reseñas
+  const [actualizar, setActualizar] = useState(false); 
 
   const cargarJuego = async () => {
     try {
@@ -37,7 +37,8 @@ function GameDetails() {
           <p><strong>Plataforma:</strong> {juego.plataforma}</p>
           <p><strong>Año:</strong> {juego.añoLanzamiento}</p>
           <p><strong>Desarrollador:</strong> {juego.desarrollador}</p>
-          <p>{juego.descripcion}</p>
+          <p><strong>Descripcion: </strong>{juego.descripcion}</p>
+
         </div>
       </div>
 

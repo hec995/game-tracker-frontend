@@ -52,3 +52,22 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
+.botonera {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.botonera button {
+  padding: 10px 18px;
+  background: #4a4af4;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botonera button:hover {
+  background: #3b3bd8;
+}

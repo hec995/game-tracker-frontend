@@ -1,42 +1,221 @@
+/* MisReseñas.css - estilos para la página "Mis reseñas" */
+
 .mis-reseñas-container {
-  padding: 20px;
-  width: 100%;
+  padding: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color: #222;
 }
 
+/* Título */
+.mis-reseñas-container h2 {
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+/* Lista */
 .review-card {
-  background: #fff;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(36, 36, 36, 0.06);
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Bloque izquierdo: imagen del juego */
+.review-info img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Título y metadatos del juego */
+.review-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.review-info p {
+  margin: 6px 0 0 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Centro: contenido de la reseña */
+.review-card p {
+  margin: 6px 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Meta pequeña */
+.review-card small {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* Botones (columna derecha) */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Botones primarios */
+.btn-edit,
+.btn-delete {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 98px;
+}
+
+/* Editar - verde */
+.btn-edit {
+  background: linear-gradient(180deg, #4caf50, #3b9b44);
+  color: white;
+}
+
+/* Eliminar - rojo */
+.btn-delete {
+  background: linear-gradient(180deg, #e53935, #c62828);
+  color: white;
+}
+
+/* Hover states */
+.btn-edit:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(59,155,68,0.12); }
+.btn-delete:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(198,40,40,0.12); }
+
+/* Responsive: en pantallas pequeñas apilar */
+@media (max-width: 800px) {
+  .review-card {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .review-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .review-info img {
+    width: 84px;
+    height: 64px;
+  }
+}
+
+/* ====== Estilos básicos para el formulario de edición dentro del modal ====== */
+
+/* Asegúrate de que el modal tenga ya su CSS (Modal.css). Estos son auxiliares. */
+.modal-content form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.review-info {
+.modal-content label {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.modal-content input[type="number"],
+.modal-content input[type="text"],
+.modal-content textarea,
+.modal-content select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d5d9df;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-content textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.modal-content button[type="submit"] {
+  margin-top: 6px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #4a4af4;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"]:hover {
+  background: #3636d9;
+}
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.edit-form input,
+.edit-form select,
+.edit-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.edit-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.check-row {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.review-info img {
-  width: 80px;
-  border-radius: 8px;
+.btn-guardar {
+  padding: 12px;
+  background: #4a4af4;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
 }
-
-.buttons {
+.review-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(36, 36, 36, 0.06);
   display: flex;
-  gap: 10px;
+  gap: 20px;
+  align-items: flex-start;
 }
 
-.btn-edit {
-  background: #4caf50;
-  color: white;
-  padding: 5px 10px;
-}
-
-.btn-delete {
-  background: #e53935;
-  color: white;
-  padding: 5px 10px;
+/* Imagen del juego */
+.review-info img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
 }
