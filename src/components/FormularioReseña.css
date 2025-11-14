@@ -1,0 +1,30 @@
+.form-reseña {
+  background: #f9fafc;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-reseña input,
+.form-reseña textarea,
+.form-reseña select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form-reseña button {
+  background-color: #0078ff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-reseña button:hover {
+  background-color: #005dc1;
+}

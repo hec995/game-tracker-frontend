@@ -1,0 +1,54 @@
+.biblioteca-container {
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fa;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+
+.biblioteca-container h2 {
+  text-align: left;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.biblioteca-container h2::before {
+  content: "🎮";
+  font-size: 1.8rem;
+}
+
+.biblioteca-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* formulario y contenido */
+  gap: 50px;
+  width: 100%;
+  height: 100%;
+  align-items: flex-start;
+}
+
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .biblioteca-container {
+    padding: 60px 100px;
+  }
+
+  .biblioteca-layout {
+    grid-template-columns: 400px 1fr;
+    gap: 60px;
+  }
+
+  .tarjetas-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

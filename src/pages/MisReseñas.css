@@ -1,0 +1,42 @@
+.mis-reseñas-container {
+  padding: 20px;
+  width: 100%;
+}
+
+.review-card {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-info img {
+  width: 80px;
+  border-radius: 8px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit {
+  background: #4caf50;
+  color: white;
+  padding: 5px 10px;
+}
+
+.btn-delete {
+  background: #e53935;
+  color: white;
+  padding: 5px 10px;
+}

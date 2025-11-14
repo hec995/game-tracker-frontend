@@ -1,7 +1,35 @@
 .app-container {
   background-color: #f5f7fa;
   min-height: 100vh;
+  width: 100%;
+  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Asegura que el contenido (main) use todo el ancho y crezca con la pantalla */
+main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+
+/* 🔹 Dentro del main, tus páginas (Home, Biblioteca, etc.) deben ocupar todo el ancho */
+main > * {
+  width: 100%;
+  max-width: 1600px; /* puedes ajustarlo si quieres más ancho */
+}
+
+/* 🔹 Asegura que el fondo ocupe todo el viewport */
+html, body, #root {
+  width: 100%;
+  height: 100%;
   margin: 0;
+  padding: 0;
 }

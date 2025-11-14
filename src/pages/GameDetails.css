@@ -1,22 +1,24 @@
 .game-details-container {
-  padding: 20px;
-  background-color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.game-header {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.game-header img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
-  margin: 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.game-header h2 {
-  color: #0078ff;
-  margin-bottom: 10px;
-}
-
-.game-header p {
-  margin: 5px 0;
-}
-
-.reviews-section {
-  margin-top: 20px;
 }
 
 .loading {

@@ -1,23 +1,65 @@
 .home-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 40px 60px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #f5f7fa;
-  min-height: 100vh;
-  padding: 40px;
-  box-sizing: border-box;
+  align-items: stretch;
 }
 
-.home-header {
-  width: 100%;
-  text-align: center;
+.home-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 30px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .home-content {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* formulario - lista */
-  gap: 30px;
+  grid-template-columns: 350px 1fr;
+  gap: 40px;
   width: 100%;
-  max-width: 1200px;
+  flex: 1;
 }
+
+.home-form {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.home-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Estilo para las tarjetas dentro de la lista */
+.home-list .game-card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .home-content {
+    grid-template-columns: 1fr;
+  }
+
+  .home-form {
+    position: static;
+    margin-bottom: 30px;
+  }
+}
+

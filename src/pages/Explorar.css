@@ -1,0 +1,58 @@
+.explorar-container {
+  padding: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.explorar-sub {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.explorar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.explorar-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.2s ease;
+  text-align: center;
+}
+
+.explorar-card:hover {
+  transform: translateY(-5px);
+}
+
+.explorar-card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.autor {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.btn-reseñar {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-reseñar:hover {
+  background: #005dc7;
+}
