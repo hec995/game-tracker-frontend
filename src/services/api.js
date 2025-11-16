@@ -14,7 +14,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// ✅ Interceptor para manejar errores 401 (sesión expirada)
+// errores 401 (sesión expirada)
 api.interceptors.response.use(
   (response) => response,
   (error) => {

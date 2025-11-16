@@ -18,7 +18,7 @@ function App() {
       <main>
         <Routes>
 
-          {/* 🔵 DASHBOARD */}
+          {/*  DASHBOARD */}
           <Route
             path="/"
             element={

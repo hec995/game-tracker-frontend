@@ -44,13 +44,12 @@ function GameDetails() {
 
       <hr />
 
-      {/* 🔹 al guardar una reseña, cambiamos el estado para forzar actualización */}
+      {/*  al guardar una reseña, se cambia el estado para forzar actualización */}
       <FormularioReseña
         juegoId={juego._id}
         onReviewAdded={() => setActualizar(!actualizar)}
       />
 
-      {/* 🔹 pasamos ese estado a ListaReseñas */}
       <ListaReseñas juegoId={juego._id} actualizar={actualizar} />
     </div>
   );

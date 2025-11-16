@@ -5,11 +5,11 @@ function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // 🔹 Eliminar token y datos del usuario
+    //  Eliminar token y datos del usuario
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    // 🔹 Redirigir al login
+    //Redirigir al login
     navigate("/login");
   };
 
