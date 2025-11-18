@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // URL base del backend
 const api = axios.create({
-  baseURL: 'http://localhost:4000/api',
+  baseURL: 'https://game-tracker-backend-k7cd.onrender.com/api',
 });
 
 // Interceptor para incluir token si existe
