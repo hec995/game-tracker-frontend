@@ -87,7 +87,8 @@ function App() {
           {/* Login y Register */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-
+           {/* Fallback para GitHub Pages */}
+          <Route path="*" element={<Login />} />
         </Routes>
       </main>
     </div>
